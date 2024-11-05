@@ -1,0 +1,97 @@
+= L'analyse des besoins
+
+== Introduction
+
+L’analyse des besoins est une étape cruciale pour concevoir une infrastructure réseau adaptée. 
+
+=== ...
+
+Elle permet de comprendre les attentes et exigences spécifiques du client et de déterminer les paramètres clés du réseau. 
+
+
+
+== 1. Taille de l'entreprise
+
+
+=== Nombre d'employés : 
+
+Une entreprise de 10 personnes n’aura pas les mêmes besoins qu’une organisation de 500 employés.
+
+
+=== Départements : 
+
+Identifier les différents services (RH, IT, Marketing, etc.) pour planifier la segmentation réseau et les priorités de trafic.
+
+=== Localisation géographique : 
+
+Nombre de sites, présence de bureaux distants, éventuels télétravailleurs.
+
+== 2. Services requis
+
+
+=== Applications internes : 
+
+Comprendre quelles applications critiques (ERP, CRM, applications de partage de fichiers, messagerie) sont utilisées.
+
+=== Accès internet : 
+
+Besoin d’une connexion haut débit, balance de charge, et des options de redondance en cas de panne.
+
+=== Partage de fichiers : Protocole requis (ex. SMB, NFS) et volume de données à transférer.
+
+
+=== Services réseau : 
+
+Serveurs DHCP, DNS, VPN, services d'impression, etc.
+
+
+== 3. Sécurité
+
+
+=== Sensibilité des données : 
+
+Prendre en compte la nature des données (par exemple, données clients, données RH, propriété intellectuelle).
+
+=== Règlementations : 
+
+Vérifier les exigences de conformité comme le RGPD, PCI-DSS pour le traitement des données personnelles ou de paiement.
+
+=== Accès sécurisé : 
+
+Besoins en VPN pour le télétravail, accès distant, et contrôles d'accès.
+
+=== Politiques de pare-feu et filtrage : 
+
+Séparation des segments de réseau, pare-feu interne et externe, filtrage de contenu.
+
+=== Surveillance et audit : 
+
+Besoin d’outils de surveillance comme SIEM, alertes en temps réel, et suivi des incidents.
+
+== 4. Scalabilité et évolution future
+
+
+=== Croissance prévue : 
+
+Prévoir la croissance de l'entreprise, notamment si des utilisateurs, des services ou des bureaux doivent être ajoutés.
+
+=== Mises à jour et maintenance : 
+
+Prévoir les exigences pour la maintenance et l'évolution de l'infrastructure réseau (mise à jour du matériel, reconfiguration).
+
+
+== Exemple de cas pratique :
+
+Vous pourriez présenter un scénario où une entreprise de 50 personnes prévoit de s’étendre à 100 personnes dans les 5 prochaines années et souhaite assurer une haute disponibilité de ses données. 
+
+=== ...
+
+L'analyse des besoins prendrait alors en compte:
+[%step]
+* l'évolutivité de l’infrastructure, 
+* la sécurité des données sensibles
+* l’intégration de solutions de sauvegarde.
+
+=== ...
+
+Une fois ces besoins identifiés, vous pourrez concevoir une infrastructure qui répond à la fois aux besoins actuels et à l'éventuelle expansion.

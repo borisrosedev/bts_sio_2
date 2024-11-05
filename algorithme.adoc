@@ -1,0 +1,157 @@
+= L'algorithme de Dijkstra
+
+== Introduction
+
+L'algorithme de Dijkstra est un algorithme de recherche de plus court chemin dans un graphe pondéré, ...
+
+=== ...
+
+utilisé dans de nombreux protocoles de routage, notamment OSPF (Open Shortest Path First). 
+
+=== ...
+
+Il permet de trouver le chemin le plus rapide (le chemin avec le coût total le plus faible) ...
+
+=== ...
+
+entre un point de départ et tous les autres points d'un graphe. 
+
+=== ...
+
+Cet algorithme est particulièrement efficace pour les réseaux où le coût représente souvent la distance, le temps ou la capacité.
+
+
+== Fonctionnement de l'algorithme de Dijkstra
+
+L'algorithme fonctionne en itérant sur les nœuds du graphe pour découvrir le chemin le plus court de manière incrémentale. 
+
+
+
+
+== Étapes principales :
+
+
+=== Initialisation :
+
+
+* Définir un nœud de départ (par exemple, un routeur).
+
+=== ...
+
+* Assigner un coût initial de 0 au nœud de départ (signifiant que la distance vers lui-même est nulle) et un coût infini à tous les autres nœuds.
+
+=== ...
+
+* Marquer tous les nœuds comme "non visités".
+
+=== ...
+
+* Placer le nœud de départ comme nœud actuel.
+
+
+=== Évaluation des voisins :
+
+Pour le nœud actuel, examiner chacun de ses voisins non visités.
+
+=== ...
+
+Calculer le coût total pour chaque voisin en ajoutant le coût du nœud actuel au coût de la liaison vers le voisin.
+
+=== ...
+
+Si le coût calculé pour atteindre un voisin est inférieur au coût actuel enregistré pour ce voisin, mettre à jour ce coût.
+
+=== ...
+
+Mémoriser le nœud actuel comme "prédécesseur" du voisin pour garder trace du chemin suivi.
+
+=== Marquage comme "visité" :
+
+Après avoir évalué tous les voisins du nœud actuel, marquer ce nœud comme "visité". 
+
+=== ...
+
+Les nœuds visités ne seront pas réévalués, car le chemin le plus court vers ces nœuds a déjà été trouvé.
+
+
+=== Sélection du prochain nœud :
+
+Choisir parmi les nœuds non visités celui avec le coût le plus faible comme nouveau "nœud actuel".
+
+=== ...
+
+Répéter le processus d’évaluation et de mise à jour pour ce nœud.
+
+=== Terminaison :
+
+L'algorithme se termine lorsque tous les nœuds ont été visités ou que le plus court chemin vers le nœud de destination a été trouvé.
+
+== Exemple simple
+
+Supposons un réseau où les nœuds A, B, C, et D sont reliés par des liaisons avec les coûts suivants :
+
+A-B : 4
+A-C : 2
+B-C : 1
+B-D : 5
+C-D : 8
+
+Si nous voulons trouver le chemin le plus court de A à D, l'algorithme de Dijkstra procéderait comme suit :
+
+Étape 1 : Coût initial = 0 pour A, infini pour les autres.
+
+=== ...
+
+Étape 2 : De A, aller à C (coût 2) et B (coût 4).
+
+=== ...
+
+Étape 3 : Sélectionner C (coût le plus bas), évaluer les voisins : D (coût 10 via C), mettre à jour si plus bas.
+
+=== ...
+
+Étape 4 : Visiter B et évaluer son voisin D.
+
+=== ...
+
+Le chemin le plus court est trouvé lorsque l’algorithme atteint D avec le coût minimum.
+
+=== ...
+
+Utilisation dans les réseaux (exemple OSPF)
+
+=== ...
+
+OSPF utilise l’algorithme de Dijkstra pour calculer les plus courts chemins depuis chaque routeur vers tous les autres routeurs dans une même zone. 
+
+=== ...
+
+Chaque routeur construit une "base de données d’état de lien" (Link-State Database), ...
+
+=== ...
+une carte du réseau, et utilise Dijkstra pour déterminer le meilleur chemin vers chaque destination.
+
+
+== Avantages et limites de l'algorithme de 
+
+=== Avantages : 
+
+Optimal pour les réseaux de taille moyenne, convergence rapide, calcule les chemins les plus courts avec précision.
+
+=== Limites : 
+
+Gourmand en ressources pour les réseaux très vastes, car il doit maintenir une carte complète du réseau. 
+
+=== ...
+
+Dijkstra n’est pas efficace pour les graphes dynamiques qui changent fréquemment.
+
+=== ...
+
+L’algorithme de Dijkstra est essentiel pour les protocoles de routage modernes, car il garantit que les données suivent le chemin le plus efficace, ce qui optimise la vitesse et l’efficacité du réseau.
+
+
+
+
+
+

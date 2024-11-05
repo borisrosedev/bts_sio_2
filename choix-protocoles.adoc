@@ -1,0 +1,234 @@
+= Le choix des protocoles de routage et de commutation 
+
+== Introduction
+
+Le choix des protocoles de routage et de commutation est essentiel pour assurer la connectivité, la stabilité et l'efficacité d'un réseau. 
+
+=== ...
+
+Je vous donne ci-contre les principaux protocoles de routage et de commutation, ainsi que des critères pour les choisir en fonction des besoins de l'infrastructure.
+
+== 1. Protocoles de routage
+
+Les protocoles de routage permettent de déterminer le meilleur chemin pour le trafic réseau entre différents réseaux (ou sous-réseaux). 
+
+=== ...
+
+Ils sont classés en deux grandes catégories : 
+
+[%step]
+* routage intérieur (IGP) pour les réseaux internes 
+* routage extérieur (EGP) pour les réseaux interdomaines.
+
+
+== Protocoles de routage intérieur (IGP)
+
+
+== RIP (Routing Information Protocol)
+
+=== Description : 
+
+Un protocole de routage basé sur le comptage des sauts. Il est simple et facile à configurer.
+
+=== Avantages : 
+
+Idéal pour de petits réseaux, car il est facile à comprendre et à implémenter.
+
+=== Limites : 
+
+* Limité à 15 sauts, ce qui le rend inadapté aux réseaux de grande taille. 
+
+
+* Convergence lente. link:./convergence.html[en savoir plus]
+
+* Cas d'utilisation : Réseaux simples et petits sans exigences de performance élevées.
+
+
+== OSPF (Open Shortest Path First)
+
+=== Description : 
+
+Un protocole de routage à état de lien basé sur l’algorithme de Dijkstra. 
+
+=== ....
+
+Il utilise une carte complète du réseau pour déterminer les meilleurs chemins.
+
+=== Avantages : 
+
+Convergence rapide, prise en charge de la hiérarchisation avec des zones, bien adapté aux réseaux de taille moyenne à grande.
+
+=== Limites : 
+
+Complexe à configurer et demande plus de ressources.
+
+=== Cas d'utilisation : 
+
+Réseaux d’entreprise de moyenne à grande taille nécessitant une convergence rapide et une gestion segmentée du réseau.
+
+
+== EIGRP (Enhanced Interior Gateway Routing Protocol)
+
+
+=== Description : 
+
+Un protocole hybride propriétaire de Cisco qui combine les avantages des protocoles à vecteur de distance et des protocoles à état de lien.
+
+=== Avantages : 
+
+Convergence rapide, faible utilisation de la bande passante, facile à configurer pour des réseaux Cisco.
+
+=== Limites : 
+
+Fonctionne principalement dans les environnements Cisco, avec une compatibilité limitée hors Cisco.
+
+=== Cas d'utilisation : 
+
+Réseaux d’entreprise Cisco où la rapidité de convergence et la simplicité sont recherchées.
+
+== Protocoles de routage extérieur (EGP)
+
+=== BGP (Border Gateway Protocol)
+
+=== Description : 
+
+Un protocole de routage de type vecteur de chemin, conçu pour le routage inter-domaine sur Internet. 
+
+=== ...
+
+Utilisé par les fournisseurs de services Internet pour échanger les routes entre différents réseaux autonomes (AS).
+
+=== Avantages : 
+
+Grande stabilité, contrôle fin des chemins de routage, support de nombreuses politiques de routage.
+
+=== Limites : 
+
+Configuration complexe, nécessite une gestion et un suivi continus.
+
+
+=== Cas d'utilisation : 
+
+Réseaux qui communiquent avec plusieurs réseaux externes, comme les réseaux de fournisseurs de services Internet ou les réseaux d'entreprise ayant des connexions multi-homing.
+
+
+== 2. Protocoles de commutation
+
+Les protocoles de commutation sont utilisés pour gérer le trafic au sein d’un même réseau local (LAN). 
+
+=== ...
+
+Ils assurent l’efficacité et la sécurité du réseau, en particulier lorsque les VLANs sont utilisés.
+
+
+== STP (Spanning Tree Protocol)
+
+=== Description : 
+
+Empêche les boucles de commutation en désactivant certaines liaisons redondantes pour créer une topologie sans boucle.
+
+=== Avantages : 
+
+Assure la stabilité du réseau en cas de topologies redondantes, évitant les tempêtes de diffusion.
+
+=== Limites : 
+
+Temps de convergence plus lent, qui peut affecter les performances lors de changements dans la topologie.
+
+=== Cas d'utilisation : 
+
+Réseaux avec des switches redondants où la protection contre les boucles est nécessaire.
+
+=== RSTP (Rapid Spanning Tree Protocol)
+
+=== Description : 
+
+Version améliorée de STP, avec des temps de convergence plus rapides.
+
+=== Avantages : 
+
+Convergence rapide, adapté aux environnements où les temps d’arrêt doivent être minimisés.
+
+=== Limites : 
+
+Légèrement plus complexe à configurer que STP.
+
+=== Cas d'utilisation : 
+
+Réseaux nécessitant des temps de reprise rapide après une 
+panne de liaison, tels que les réseaux d’entreprise.
+
+== VTP (VLAN Trunking Protocol)
+
+
+=== Description : 
+
+Un protocole propriétaire de Cisco pour gérer les VLANs à travers un réseau de switches.
+
+=== Avantages : 
+
+Simplifie la gestion des VLANs en permettant leur propagation sur plusieurs switches.
+
+=== Limites : 
+
+Risques liés à une mauvaise configuration, pouvant entraîner la perte de la configuration des VLANs.
+
+=== Cas d'utilisation : 
+
+Réseaux Cisco avec de nombreux VLANs et switches pour une gestion centralisée.
+
+
+== EtherChannel
+
+=== Description : 
+
+Combine plusieurs liaisons physiques en une liaison logique pour augmenter la bande passante et offrir de la redondance.
+
+=== Avantages : 
+
+Augmente la capacité de bande passante entre les switches et ajoute une redondance.
+
+=== Limites : 
+
+Configuration plus complexe et support limité à certains types de matériels.
+
+=== Cas d'utilisation : 
+
+Liaisons entre switches principaux ou entre un switch et un routeur nécessitant une bande passante élevée.
+
+== Exemple de sélection de protocoles pour un réseau d'entreprise
+
+Pour un réseau d'entreprise multi-sites, on aurait pu choisir les protocoles suivants:
+
+=== ...
+
+OSPF pour le routage interne des différents sites de l’entreprise, ...
+
+=== ...
+
+en raison de sa convergence rapide et de sa capacité à segmenter le réseau en zones.
+
+=== ...
+
+BGP pour le routage vers l’Internet ou pour gérer les connexions avec ...
+
+=== ...
+
+des partenaires ou des filiales situées dans des réseaux autonomes.
+
+=== ...
+
+RSTP au niveau de la commutation pour gérer la redondance dans les switches de niveau 2 et assurer un temps de reprise rapide.
+
+=== ...
+
+VTP si l’entreprise utilise un environnement Cisco, pour simplifier la gestion des VLANs sur plusieurs switches.
+
+=== ...
+
+Ce choix de protocoles assure une structure réseau flexible et robuste, ...
+
+
+=== ...
+
+capable de répondre aux besoins de l’entreprise tout en offrant une bonne gestion de la redondance et de la sécurité.

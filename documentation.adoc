@@ -1,0 +1,232 @@
+= La documentation
+
+La documentation est une composante de la conception réseau, ...
+
+=== ...
+
+car elle permet de conserver une trace des choix techniques, des configurations et de la topologie réseau.
+
+=== ...
+
+Elle est indispensable pour les administrateurs réseau, les équipes de support, ...
+
+=== ...
+
+et pour assurer la maintenance à long terme de l’infrastructure.
+
+=== ...
+
+Éléments clés pour créer une documentation réseau complète et utile :
+
+== 1. Création de schémas réseau
+
+Les schémas réseau sont des représentations visuelles qui illustrent l’architecture physique et logique du réseau. 
+
+=== ...
+
+Ils facilitent la compréhension de la structure et permettent une résolution des problèmes plus rapide.
+
+
+== Types de schémas :
+
+=== Schéma logique : 
+
+Montre les relations et les connexions logiques entre les équipements (ex. routeurs, switches, VLANs), ...
+
+=== ...
+
+ainsi que la segmentation du réseau (ex. VLANs, sous-réseaux).
+
+=== Schéma physique : 
+
+Montre l’emplacement physique des équipements, la disposition des câbles, les racks, et les connexions entre eux.
+
+=== Schéma de flux de données : 
+
+Montre comment les données circulent entre les différents équipements, utile pour visualiser le flux de trafic et les points de contrôle de sécurité.
+
+
+=== Schéma de sécurité : 
+
+Inclut les pare-feux, les zones DMZ, les points d’accès VPN, les contrôles d’accès, et toute autre mesure de sécurité réseau.
+
+
+== Outils de création de schémas :
+
+
+=== Microsoft Visio : 
+
+Un outil très utilisé pour les diagrammes réseau avec une bibliothèque d’icônes pour représenter les équipements réseau.
+
+=== Draw.io : 
+
+Une solution en ligne gratuite qui offre des icônes et des éléments pour créer des schémas réseau.
+
+=== Lucidchart : 
+
+Un autre outil en ligne, collaboratif, qui permet aux équipes de travailler sur des schémas en temps réel.
+
+=== Cisco Packet Tracer ou GNS3 : 
+
+Utilisé pour les simulations et peut également être utilisé pour créer des schémas fonctionnels de topologies réseau.
+
+
+== 2. Documentation des choix techniques
+
+Documenter les choix techniques permet de comprendre pourquoi certaines décisions ont été prises et d’aider les futures modifications du réseau. 
+
+
+== Éléments à inclure dans cette documentation :
+
+
+=== 1) Besoins et objectifs :
+
+Décrire les exigences réseau de l’organisation, les besoins en sécurité, les objectifs de performance ...
+
+=== ...
+
+et de redondance, ainsi que les spécifications en termes de disponibilité et de scalabilité.
+
+=== 2) Configuration des VLANs et des sous-réseaux :
+
+Détail des VLANs créés, leurs ID, les équipements et utilisateurs qui y sont affectés.
+
+=== ...
+
+Sous-réseaux et plages d’adresses IP associées, ainsi que les adresses de passerelle pour chaque sous-réseau.
+
+
+=== 3) Protocole de routage :
+
+Justification du protocole choisi (ex. OSPF pour sa rapidité de convergence ou BGP pour les interconnexions).
+
+
+=== ...
+
+Détails de configuration, comme les tables de routage, les filtres, et les politiques de routage.
+
+
+=== Matériel et équipements utilisés :
+
+Liste complète des équipements (modèles, numéros de série, version du firmware).
+
+=== ...
+
+Informations sur les configurations matérielles et logicielles, incluant les versions logicielles utilisées, les licences, et les capacités de chaque équipement.
+
+=== Paramètres de sécurité :
+
+Liste des règles de pare-feu, des paramètres de VPN, des configurations ACL (Listes de contrôle d’accès), et des stratégies de protection.
+
+=== ...
+
+Documentation sur les procédures de gestion des identités, les permissions d’accès, ...
+
+=== ...
+
+et les configurations de sécurité de chaque segment de réseau.
+
+
+=== Plan de maintenance et d’évolution :
+
+Plan de mise à jour et de maintenance des équipements (ex. programme de mises à jour de firmware).
+
+=== ...
+
+Stratégie de scalabilité pour l'ajout de nouveaux utilisateurs, équipements ou sites.
+
+
+== 3. Modèle de documentation de chaque équipement
+
+=== Identification de l’équipement : 
+
+Nom, type (routeur, switch, firewall), et adresse IP.
+
+=== Configuration IP : 
+Adresse IP, masque de sous-réseau, passerelle.
+
+=== VLAN et interconnexions : 
+
+VLAN configurés, interfaces associées, liens vers d’autres équipements.
+
+=== Configuration des protocoles : 
+
+Protocole de routage (ex. OSPF, BGP), paramètres de STP pour les switches, politiques de routage.
+
+=== Paramètres de sécurité : 
+
+ACLs appliquées, mots de passe d’administration, configurations de chiffrement.
+
+
+=== Journal des modifications : 
+
+Historique des changements effectués, avec les dates et les raisons de chaque modification.
+
+== 4. Plan de récupération et documentation des procédures de dépannage
+
+
+=== Scénarios de pannes courantes : 
+
+Procédures de dépannage détaillées pour les problèmes les plus fréquents, ...
+
+=== ...
+
+comme les coupures de connexion, les pannes de switch, ou les erreurs de routage.
+
+=== Plan de récupération en cas d’urgence : 
+
+Instructions pour restaurer le réseau, incluant les sauvegardes, la redondance et les étapes de rétablissement en cas de panne critique.
+
+
+=== Contacts d’assistance : 
+
+Informations sur les fournisseurs de matériel, les numéros de contact pour le support technique, ...
+
+=== ...
+
+et les coordonnées de l’équipe réseau.
+
+=== ...
+
+Exemple de structure de documentation
+
+=== ...
+
+Un fichier de documentation bien structuré pourrait inclure les sections suivantes :
+
+=== Introduction : 
+
+Description générale du réseau.
+
+=== Schémas réseau : 
+
+Inclure les schémas logique, physique, de flux de données, et de sécurité.
+
+
+=== Configurations techniques : 
+
+Détails des VLANs, sous-réseaux, protocoles de routage, et configuration des pare-feux.
+
+=== Liste des équipements et inventaire : 
+
+Modèles, versions logicielles, et paramètres de chaque appareil.
+
+=== Consignes de sécurité et contrôle d’accès : 
+
+Politique de sécurité, gestion des identités.
+
+=== Maintenance et plan d’évolution : 
+
+Programme des mises à jour, plan de croissance.
+
+=== Procédures de dépannage et contacts : 
+
+Instructions de dépannage et contacts pour le support.
+
+=== ...
+
+Cette documentation peut être centralisée dans un wiki interne ou un outil de gestion de documentation pour un accès facile et un suivi des versions. 
+
+=== ...
+
+Elle sera ainsi à jour, accessible à tous les intervenants, et adaptée aux évolutions du réseau.

@@ -1,0 +1,87 @@
+= BTS SI0 2
+
+== Conception d’une solution d’infrastructure
+
+
+=== Analyse des besoins : 
+
+Identification des besoins réseau et du contexte client (taille de l'entreprise, services requis, sécurité). 
+
+* link:./analyse-besoins.html[Cours ici] 
+
+
+=== Conception du réseau : 
+
+Élaboration de topologies (réseaux LAN, WAN), choix de matériel (routeurs, switches, serveurs), création de VLANs.
+
+* link:./conception-reseau.html[Cours ici] 
+
+
+=== Planification de la sécurité : 
+
+Sécurisation des accès, pare-feu, VPN, segmentation.
+
+* link:./planification-securite.html[Cours ici] 
+
+
+=== Choix des protocoles : 
+
+Sélection de protocoles de routage et de commutation (ex. OSPF, BGP).
+
+
+* link:./choix-protocoles.html[Cours ici] 
+
+
+
+=== Documentation : 
+
+Création de schémas réseau, documentation des choix techniques.
+
+* link:./documentation.html[Cours ici]
+
+== 2. Installation, test et déploiement d’une solution d’infrastructure réseau
+
+=== Installation physique : 
+
+Configuration matérielle (câblage, emplacement des équipements).
+
+== Configuration initiale : 
+
+Paramétrage des switches, routeurs, serveurs (DHCP, DNS).
+
+== Tests de connectivité : 
+
+Validation de la communication entre différents segments du réseau.
+
+== Sécurité des accès : Configuration d’ACLs, contrôle des accès par les identifiants et permissions.
+
+=== Automatisation : 
+
+Introduction à des outils d'automatisation pour les installations massives (ex. scripts Ansible, PowerShell).
+
+=== Validation des performances : 
+
+Tests de latence, bande passante, et fiabilité du réseau.
+
+== 3. Exploitation, dépannage et supervision d’une solution d’infrastructure réseau
+
+=== Supervision : 
+
+Mise en place d’outils de monitoring (SNMP, logs de réseau, alertes).
+
+=== Dépannage réseau : 
+
+Techniques de diagnostic de pannes (ping, traceroute, analyse de trames).
+
+=== Gestion des incidents : 
+
+Identification et résolution des problèmes, documentation des incidents.
+
+=== Mises à jour et maintenance : 
+
+Application de mises à jour de sécurité, nettoyage des équipements.
+
+=== Optimisation du réseau : 
+
+Surveillance de la performance, gestion de la bande passante et des priorités de trafic.
+

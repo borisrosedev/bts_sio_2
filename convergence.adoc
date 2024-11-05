@@ -1,0 +1,115 @@
+= La convergence
+
+== Définition
+
+La convergence dans un réseau fait référence au processus par lequel les routeurs ...
+
+=== ...
+
+et autres équipements réseau mettent à jour ...
+
+=== ...
+
+
+et stabilisent leurs tables de routage pour refléter l’état actuel du réseau. 
+
+=== ...
+
+En d'autres termes, la convergence est atteinte lorsqu'un changement dans le réseau (comme la panne d'un routeur ou d'une liaison) est ...
+
+=== ...
+
+détecté et que tous les routeurs du réseau ont mis à jour leurs informations pour tenir compte de ce changement.
+
+=== ...
+
+Une convergence rapide est essentielle pour assurer la continuité de la communication dans un réseau, 
+
+=== ...
+
+en particulier dans les environnements critiques où des interruptions peuvent affecter la productivité ou la sécurité.
+
+== Explication
+
+=== Détection des changements : 
+
+Lorsqu'un changement se produit, comme la déconnexion d'une liaison ...
+
+=== ...
+
+ou l'ajout d'un nouveau routeur, les équipements réseau doivent d'abord détecter cette modification. 
+
+=== ...
+
+Cela déclenche un processus de mise à jour.
+
+
+=== Mise à jour des tables de routage : 
+
+Les équipements réseau communiquent entre eux pour partager les nouvelles informations de routage. 
+
+=== ...
+
+Ils recalculent alors les chemins de routage en fonction des informations reçues.
+
+=== Propagation de l’information : 
+
+Les routeurs propagent la mise à jour à tous les autres équipements du réseau. 
+
+=== ...
+
+Dans les protocoles comme OSPF, cela se fait par l’échange de tables d’état de lien (Link State Advertisements).
+
+
+=== Établissement de la convergence : 
+
+Le réseau est considéré comme ayant "convergé" lorsque tous les routeurs ont reçu et ...
+
+=== ...
+
+traité les informations de changement, et que les tables de routage sont cohérentes dans tout le réseau.
+
+=== Importance de la convergence rapide
+
+Une convergence rapide est cruciale pour :
+
+=== Minimiser les interruptions : 
+
+Les délais de convergence peuvent entraîner des pertes de connectivité temporaires.
+
+=== Améliorer la résilience : 
+
+Les réseaux avec une convergence rapide se remettent plus rapidement des pannes.
+
+=== Assurer la qualité de service : 
+
+Dans des applications sensibles comme la VoIP ou la vidéo, des délais de convergence peuvent créer des interruptions perceptibles.
+
+
+== Convergence selon les protocoles
+
+Les protocoles de routage se distinguent par leur rapidité de convergence :
+
+=== RIP : 
+
+Convergence lente, car il utilise un simple comptage de sauts et peut mettre plusieurs minutes pour stabiliser les routes.
+
+=== OSPF et EIGRP : 
+
+Convergence rapide grâce à leur approche avancée (OSPF utilise un état de lien, ...
+
+=== ...
+
+EIGRP est un protocole hybride) pour recalculer les routes rapidement.
+
+=== BGP : 
+
+Convergence plus lente en général, car il est conçu pour des réseaux très étendus (comme Internet) et applique des politiques de routage complexes.
+
+
+
+
+
+
+
+

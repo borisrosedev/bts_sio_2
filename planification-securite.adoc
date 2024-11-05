@@ -1,0 +1,236 @@
+= La planification de la sécurité 
+
+La planification de la sécurité réseau est cruciale pour protéger l’infrastructure et les données de l'entreprise contre les menaces. 
+
+
+=== ...
+
+Cette planification passe par plusieurs aspects clés : 
+[%step]
+* la sécurisation des accès, 
+* la configuration des pare-feux, * l’utilisation de VPN,
+* la segmentation du réseau. 
+
+
+
+== Meilleures pratiques pour chaque aspect.
+
+
+== 1. Sécurisation des accès
+
+=== Contrôle d’accès physique : 
+
+Restreindre l’accès physique aux équipements réseau (serveurs, switches, routeurs) en utilisant des systèmes de badge, des caméras de surveillance et des serrures sécurisées pour les salles de serveurs.
+
+
+==: Contrôle d’accès réseau (NAC) :
+
+=== Authentification 802.1X :
+
+Utiliser le protocole 802.1X pour authentifier les utilisateurs et les appareils se connectant au réseau. Les utilisateurs doivent fournir des identifiants pour accéder aux ressources réseau.
+
+=== Segmentation en fonction des rôles :
+
+Attribuer les utilisateurs et les appareils à des segments réseau (VLANs) spécifiques en fonction de leur rôle ou de leur niveau d’accès.
+
+=== Authentification multi-facteurs (MFA) :
+
+
+=== MFA pour les accès sensibles : 
+
+Implémenter une authentification à plusieurs facteurs (MFA) pour les utilisateurs accédant à des ressources critiques (par exemple, les serveurs de production).
+
+=== Gestion des identités et des accès (IAM) :
+
+Utiliser un système IAM pour gérer les autorisations d’accès, les permissions et les identités. Les utilisateurs ne devraient avoir accès qu’aux ressources nécessaires pour leur rôle.
+
+=== Suivi des activités et des connexions :
+
+Activer la journalisation pour garder une trace des connexions et des activités des utilisateurs. En cas d’incident, les logs permettent de retracer les actions suspectes.
+
+== 2. Pare-feu
+
+
+=== Définition des règles de pare-feu :
+
+=== Règles basées sur les besoins : 
+Configurer des règles pour autoriser uniquement le trafic nécessaire, en bloquant par défaut tout le reste (principe du moindre privilège).
+
+=== Segmentation du trafic : 
+
+Créer des règles distinctes pour le trafic interne, le trafic externe, et le trafic entre segments internes.
+
+
+== Types de pare-feu :
+
+=== Pare-feu matériel : 
+
+Utilisé à la périphérie du réseau pour contrôler le trafic entrant et sortant.
+
+=== Pare-feu applicatif (WAF) : 
+
+Pour protéger les applications web, en particulier contre les attaques comme les injections SQL ou les attaques XSS.
+
+=== Pare-feu interne :
+
+Utiliser des pare-feu internes pour protéger les segments réseau sensibles (ex. département financier, ressources humaines) contre le trafic non autorisé des autres segments internes.
+
+=== Listes de contrôle d’accès (ACLs) :
+
+
+Configurer des ACLs sur les routeurs et les switches pour filtrer le trafic selon les adresses IP, les ports, et les protocoles. 
+
+=== ...
+
+Cela permet de restreindre l’accès entre les sous-réseaux sans dépendre uniquement du pare-feu principal.
+
+
+
+== 3. VPN (Virtual Private Network)
+
+=== VPN pour les accès distants :
+
+
+=== VPN client-à-site : 
+
+Fournir un accès sécurisé aux utilisateurs distants (télétravailleurs, partenaires). 
+
+=== ...
+
+Le VPN chiffre le trafic entre le client et le réseau de l’entreprise, offrant une protection contre l’interception.
+
+
+=== VPN pour les connexions inter-sites :
+
+=== VPN site-à-site : 
+
+Utilisé pour connecter de manière sécurisée les bureaux distants au réseau principal de l’entreprise. Ce type de VPN est généralement configuré entre les routeurs de chaque site.
+
+
+=== Protocoles de sécurité VPN :
+
+Utiliser des protocoles de chiffrement comme IPsec (Internet Protocol Security) pour la confidentialité et l’intégrité du trafic.
+
+
+SSL/TLS pour les connexions VPN si les utilisateurs se connectent via un navigateur ou une application web.
+
+
+=== Gestion des accès VPN :
+
+Limiter les accès VPN aux utilisateurs et appareils autorisés.
+
+=== ...
+
+Activer des contrôles d’intégrité sur les appareils connectés (ex. vérification des antivirus et des correctifs) ...
+
+=== ...
+
+
+pour éviter que des appareils compromis ne se connectent au réseau.
+
+== 4. Segmentation du réseau
+
+Utilisation de VLANs (Virtual Local Area Networks) :
+
+=== Segmentation par département : Attribuer des VLANs à chaque département (par exemple, VLAN pour les RH, IT, Finance) pour isoler le trafic et renforcer la sécurité.
+
+=== Isolation des zones sensibles : 
+
+Placer les serveurs et les applications sensibles dans des VLANs dédiés pour limiter leur exposition.
+
+
+=== Routage inter-VLAN :
+
+Utiliser un switch de niveau 3 pour le routage entre VLANs tout en appliquant des règles de sécurité pour limiter la communication entre les VLANs. 
+
+=== ...
+
+Par exemple, restreindre les accès entre le VLAN du département finance et le VLAN général des employés.
+
+
+=== Création d'une DMZ (Demilitarized Zone) :
+
+Utiliser une DMZ pour héberger les services accessibles depuis l'extérieur, ...
+
+=== ...
+
+comme les serveurs web, les serveurs de messagerie, ou les services de fichiers pour les clients. 
+
+=== ...
+
+La DMZ permet de protéger le réseau interne en isolant les ressources accessibles publiquement.
+
+
+
+=== Micro-segmentation :
+
+Pour les environnements critiques (data centers, cloud), la micro-segmentation permet de restreindre l’accès entre les applications ou les services en utilisant des règles de pare-feu au niveau de chaque machine virtuelle ou conteneur.
+
+
+=== Contrôles d’accès stricts :
+
+Utiliser des ACLs pour limiter l’accès entre les segments réseau en fonction des besoins. 
+
+=== ...
+
+Par exemple, le VLAN de l’équipe de développement pourrait avoir accès aux ressources de test, mais pas aux ressources de production.
+
+=== ...
+
+Plan d’exemple pour une entreprise
+Pour illustrer un plan de sécurité réseau pour une entreprise type, voici un exemple :
+
+
+=== Sécurisation des accès : 
+
+Authentification via 802.1X pour les employés, gestion des identités avec un système IAM, MFA pour les administrateurs et les accès aux ressources critiques.
+
+
+=== Pare-feu : 
+
+Un pare-feu à la périphérie du réseau avec des règles strictes pour le trafic entrant et sortant. 
+
+=== ...
+
+Un pare-feu interne entre les VLANs des services sensibles (Finance, RH) et le reste du réseau.
+
+
+=== VPN : 
+
+Un VPN site-à-site pour connecter un bureau distant, avec chiffrement IPsec pour sécuriser le trafic. 
+
+=== ...
+
+Un VPN client-à-site pour les télétravailleurs avec contrôle des accès en fonction des rôles.
+
+
+=== Segmentation :
+
+VLAN 10 pour le département IT, VLAN 20 pour le département Finance, VLAN 30 pour le département RH, et un VLAN invité séparé pour les visiteurs.
+
+
+=== ...
+
+Une DMZ pour le serveur web et le serveur de messagerie accessibles depuis l’extérieur.
+
+=== ...
+
+Micro-segmentation pour le data center, avec des ACLs pour limiter les accès entre les machines virtuelles.
+
+=== ...
+
+Ce plan de sécurité assure que seuls les utilisateurs autorisés peuvent accéder aux ressources réseau nécessaires, ...
+
+=== ...
+
+que les services externes sont protégés, et que les segments sensibles du réseau interne sont isolés. 
+
+=== ...
+
+Une telle stratégie limite les risques de compromission et facilite la gestion des incidents.
+
+
+
+
+
+

@@ -1,0 +1,127 @@
+= La conception du réseau
+
+== Introduction
+
+La conception du réseau est la phase où les besoins identifiés sont transformés en une architecture pratique et optimisée. 
+
+=== ...
+
+Elle consiste à élaborer la structure du réseau, choisir le matériel et les configurations spécifiques pour assurer l’efficacité et la sécurité. 
+
+
+== 1. Élaboration des topologies réseau
+
+
+=== LAN (Local Area Network) : 
+
+Créer une topologie interne qui relie les appareils de l’entreprise, en fonction de l'emplacement des bureaux et des besoins de chaque département. 
+
+=== ...
+
+Une topologie LAN peut inclure des structures en étoile, en arbre ou en anneau, en fonction des contraintes.
+
+
+=== WAN (Wide Area Network) : 
+
+Déterminer la manière dont les sites géographiquement dispersés sont reliés (liaisons privées, VPN, MPLS). 
+
+=== ...
+
+Les entreprises multi-sites nécessitent une topologie WAN pour connecter leurs succursales.
+
+=== DMZ (Demilitarized Zone) : 
+
+Ajouter une zone démilitarisée si l’entreprise héberge des services accessibles depuis l’extérieur, comme un site web ou une application en ligne. 
+
+=== ...
+
+La DMZ est souvent isolée pour améliorer la sécurité.
+
+=== Redondance et haute disponibilité : 
+
+Planifier des connexions redondantes ou des topologies en maillage pour garantir la continuité de service en cas de panne d’un appareil ou d’un lien.
+
+
+=== 2. Choix du matériel réseau
+
+
+=== Routeurs : 
+
+Choisir des routeurs adaptés en fonction du trafic attendu et des besoins de routage avancés (par exemple, Cisco ISR pour les petites à moyennes entreprises, routeurs Ubiquiti pour des solutions économiques). 
+
+=== ...
+
+Pour les environnements complexes, un routeur multifonctions avec un support de VLANs et de routage avancé peut être nécessaire.
+
+
+=== Switches :
+
+Switches de niveau 2 : Pour les connexions de base au sein d’un même VLAN.
+
+=== Switches de niveau 3 : 
+
+Nécessaires pour faire du routage inter-VLAN. Par exemple, un switch Cisco Catalyst peut gérer la segmentation et les routes internes.
+
+=== Serveurs :
+
+
+=== Serveur DHCP et DNS : 
+
+Un serveur peut être dédié pour gérer les adresses IP (DHCP) et les noms de domaine (DNS).
+
+=== Serveur VPN : 
+
+Pour les employés en télétravail ou les bureaux distants.
+
+=== Serveur de fichiers et d’applications : 
+
+Stocke les documents partagés et héberge les applications internes (ex. serveurs NAS, serveurs de fichiers Windows ou Linux).
+
+=== Firewalls : 
+
+Un pare-feu matériel ou logiciel permet de contrôler le trafic entrant et sortant, en protégeant le réseau des menaces externes et internes.
+
+
+== 3. Création de VLANs
+
+
+=== Segmentation des départements : 
+
+Séparer les départements en VLANs pour sécuriser et isoler les flux de données. 
+
+=== Par exemple :
+
+VLAN 10 : Administratif (RH, Finance)
+VLAN 20 : IT et infrastructure
+VLAN 30 : Marketing et ventes
+
+=== Configuration du routage inter-VLAN : 
+
+Utiliser des switches de niveau 3 pour permettre la communication entre VLANs lorsque nécessaire. 
+
+
+Des règles de pare-feu peuvent être ajoutées pour limiter les accès entre certains VLANs.
+
+=== Sécurité des VLANs : 
+
+Limiter les droits d'accès d'un VLAN à un autre (par exemple, le VLAN du service financier pourrait être isolé des autres pour protéger les données sensibles).
+
+=== Optimisation de la bande passante : 
+
+Allouer des ressources spécifiques à certains VLANs pour prioriser certains flux de données (ex. trafic VoIP, applications critiques).
+
+
+== Exemples de topologies réseau
+
+=== Topologie en étoile : 
+
+Convient aux bureaux de petite taille, avec un switch central auquel tous les périphériques sont connectés.
+
+=== Topologie maillée partielle : 
+
+Pour les entreprises ayant besoin de redondance, où chaque appareil important a plusieurs connexions pour la continuité en cas de panne.
+
+=== Topologie hiérarchique : 
+
+Les switches de niveau 2 connectent des départements individuels, tandis qu’un switch de niveau 3 central assure le routage inter-VLAN et la connexion au routeur principal.
+
